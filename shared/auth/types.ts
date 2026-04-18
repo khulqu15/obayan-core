@@ -24,3 +24,9 @@ export interface ActorAccess {
     features: string[];
     roleScopes: Record<string, string[]>;
 }
+
+export interface CurrentAuthData {
+    userId: string;
+    tenantSlug?: string;
+    role?: string;
+}
