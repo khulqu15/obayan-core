@@ -1,4 +1,4 @@
-import { db, sqlite } from "../../shared/db/client";
+import { db } from "../../shared/db/client";
 import { hashSync } from "bcryptjs";
 import {
   tenants,
@@ -75,7 +75,7 @@ function seedCredential(userId: string, rawPassword: string) {
             updatedAt: now,
         })
         .onConflictDoNothing()
-        .run();
+        .execute();
 }
 
 function seedAllCredentials() {
@@ -190,7 +190,7 @@ function seedRoles() {
         },
         ])
         .onConflictDoNothing()
-        .run();
+        .execute();
 }
 
     function seedSuperadmin() {
@@ -213,7 +213,7 @@ function seedRoles() {
         updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 }
 
 function grantRoutes(tenantId: string, userId: string, routes: string[]) {
@@ -226,7 +226,7 @@ function grantRoutes(tenantId: string, userId: string, routes: string[]) {
     }));
 
     if (rows.length > 0) {
-        db.insert(userRouteGrants).values(rows).onConflictDoNothing().run();
+        db.insert(userRouteGrants).values(rows).onConflictDoNothing().execute();
     }
 }
 
@@ -239,7 +239,7 @@ function assignRole(tenantId: string, userId: string, roleKey: "superadmin" | "a
         updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 }
 
 function seedTenantAlberrBasic() {
@@ -260,7 +260,7 @@ function seedTenantAlberrBasic() {
         updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
     assignRole(tenantId, "user_superadmin_obayan", "superadmin");
 
@@ -353,7 +353,7 @@ function seedTenantAlberrBasic() {
         updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(registrationSettings)
     .values({
@@ -365,7 +365,7 @@ function seedTenantAlberrBasic() {
       updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(contacts)
     .values({
@@ -387,7 +387,7 @@ function seedTenantAlberrBasic() {
       updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(socialLinks)
     .values([
@@ -426,7 +426,7 @@ function seedTenantAlberrBasic() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(navbarItems)
     .values([
@@ -497,7 +497,7 @@ function seedTenantAlberrBasic() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   const adminId = "user_alberr_admin";
   const mediaId = "user_alberr_media";
@@ -538,7 +538,7 @@ function seedTenantAlberrBasic() {
     },
   ])
   .onConflictDoNothing()
-  .run();
+  .execute();
 
   assignRole(tenantId, adminId, "admin");
   assignRole(tenantId, mediaId, "media");
@@ -587,7 +587,7 @@ function seedTenantAlberrBasic() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(cmsPageSections)
     .values([
@@ -689,7 +689,7 @@ function seedTenantAlberrBasic() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   const newsId1 = "news_alberr_ppdb_2025";
   const newsId2 = "news_alberr_pengumuman_awal";
@@ -746,7 +746,7 @@ function seedTenantAlberrBasic() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(newsHistory)
     .values([
@@ -786,7 +786,7 @@ function seedTenantAlberrBasic() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 }
 
 function seedTenantAlinayahProMappedToPremium() {
@@ -808,7 +808,7 @@ function seedTenantAlinayahProMappedToPremium() {
       updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   assignRole(tenantId, "user_superadmin_obayan", "superadmin");
 
@@ -932,7 +932,7 @@ function seedTenantAlinayahProMappedToPremium() {
     updatedAt: now,
   })
   .onConflictDoNothing()
-  .run();
+  .execute();
 
   db.insert(registrationSettings)
     .values({
@@ -944,7 +944,7 @@ function seedTenantAlinayahProMappedToPremium() {
       updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(contacts)
     .values({
@@ -965,7 +965,7 @@ function seedTenantAlinayahProMappedToPremium() {
       updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(socialLinks)
     .values([
@@ -993,7 +993,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(navbarItems)
     .values([
@@ -1077,7 +1077,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   const adminId = "user_alinayah_admin";
   const mediaId = "user_alinayah_media";
@@ -1186,7 +1186,7 @@ function seedTenantAlinayahProMappedToPremium() {
     },
   ])
   .onConflictDoNothing()
-  .run();
+  .execute();
 
   assignRole(tenantId, adminId, "admin");
   assignRole(tenantId, mediaId, "media");
@@ -1243,7 +1243,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(cmsPageSections)
     .values([
@@ -1354,7 +1354,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   const newsId1 = "news_alinayah_portal_wali";
   const newsId2 = "news_alinayah_tahun_ajaran";
@@ -1407,7 +1407,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(newsHistory)
     .values([
@@ -1447,7 +1447,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   const dormBlockIdA = "dorm_alinayah_a";
   const roomIdA1 = "room_alinayah_a1";
@@ -1466,7 +1466,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(rooms)
     .values([
@@ -1490,7 +1490,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   const guardianEntity1 = "guardian_alinayah_ahmad";
   const guardianEntity2 = "guardian_alinayah_siti";
@@ -1530,7 +1530,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(students)
     .values([
@@ -1600,7 +1600,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(studentGuardians)
     .values([
@@ -1624,7 +1624,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(teachers)
     .values([
@@ -1659,7 +1659,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   const classId = "class_alinayah_vii_a";
   const subjectIdTahsin = "subject_alinayah_tahsin";
@@ -1684,7 +1684,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(classMemberships)
     .values([
@@ -1706,7 +1706,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(subjects)
     .values([
@@ -1736,7 +1736,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(reportTerms)
     .values([
@@ -1750,7 +1750,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(grades)
     .values([
@@ -1788,7 +1788,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(memorizationEntries)
     .values([
@@ -1813,7 +1813,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(attendanceSettings)
     .values({
@@ -1826,7 +1826,7 @@ function seedTenantAlinayahProMappedToPremium() {
       updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   const sessionId = "attendance_session_alinayah_2025_07_01_am";
 
@@ -1843,7 +1843,7 @@ function seedTenantAlinayahProMappedToPremium() {
       updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(attendanceRecords)
     .values([
@@ -1883,7 +1883,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   const billingPeriodId = "billing_alinayah_202507";
   const chargeSppId = "charge_template_alinayah_spp";
@@ -1901,7 +1901,7 @@ function seedTenantAlinayahProMappedToPremium() {
       updatedAt: now,
     })
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(chargeTemplates)
     .values([
@@ -1925,7 +1925,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(chargeRules)
     .values([
@@ -1957,7 +1957,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(invoices)
     .values([
@@ -1983,7 +1983,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 
   db.insert(invoiceItems)
     .values([
@@ -2037,7 +2037,7 @@ function seedTenantAlinayahProMappedToPremium() {
       },
     ])
     .onConflictDoNothing()
-    .run();
+    .execute();
 }
 
 function main() {

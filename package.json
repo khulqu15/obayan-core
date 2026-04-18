@@ -13,9 +13,9 @@
     "db:push": "drizzle-kit push"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20.5.7",
     "@types/nodemailer": "^8.0.0",
+    "@types/pg": "^8.20.0",
     "drizzle-kit": "^0.31.10",
     "tsx": "^4.21.0",
     "typescript": "^5.2.2",
@@ -23,11 +23,12 @@
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "better-sqlite3": "^12.9.0",
+    "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
     "encore.dev": "^1.56.6",
     "jose": "^6.2.2",
     "nodemailer": "^8.0.5",
+    "pg": "^8.20.0",
     "zod": "^4.3.6"
   },
   "optionalDependencies": {
