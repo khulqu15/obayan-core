@@ -44,7 +44,7 @@ import {
   invoiceItems,
 
   userPasswordCredentials,
-} from "../../shared/schema";
+} from "../../shared/schema/index";
 
 const now = new Date().toISOString();
 const currentYear = new Date().getFullYear();

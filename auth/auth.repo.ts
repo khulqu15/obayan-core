@@ -7,7 +7,7 @@ import {
   userPasswordCredentials,
   passwordResetTokens,
   emailVerificationTokens,
-} from "../shared/schema";
+} from "../shared/schema/index";
 
 export interface CreateUserParams {
   userId: string;

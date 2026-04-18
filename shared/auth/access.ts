@@ -2,7 +2,7 @@ import { APIError } from "encore.dev/api";
 import { getAuthData } from "~encore/auth";
 import { and, eq } from "drizzle-orm";
 import { db } from "../db/client";
-import { tenants, tenantSettings, userTenantRoles } from "../schema";
+import { tenants, tenantSettings, userTenantRoles } from "../schema/index";
 import type { ActorAccess, AppRole, TenantAccessSettings } from "./types";
 
 function parseJsonArray(value: string | null | undefined): string[] {

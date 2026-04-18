@@ -13,7 +13,7 @@ import { db } from "../../shared/db/client";
 import {
   cmsPages,
   cmsPageSections,
-} from "../../shared/schema";
+} from "../../shared/schema/index";
 
 export interface PageListParams {
   tenantId: string;

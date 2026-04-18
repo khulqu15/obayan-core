@@ -2,7 +2,7 @@ import fs from "node:fs"
 import path from "node:path"
 import BetterSqlite3 from "better-sqlite3"
 import { drizzle } from "drizzle-orm/better-sqlite3"
-import * as schema from "../schema"
+import * as schema from "../schema/index"
 
 type SqliteClient = InstanceType<typeof BetterSqlite3>;
 

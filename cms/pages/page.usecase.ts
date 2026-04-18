@@ -1,6 +1,6 @@
 // cms/pages/page.usecase.ts
 import { db } from "../../shared/db/client";
-import { cmsPages } from "../../shared/schema";
+import { cmsPages } from "../../shared/schema/index";
 import { eq, and, like, count, desc } from "drizzle-orm";
 import type { CreatePageDto, ListPageQuery, PageVm, UpdatePageDto } from "./page.controller";
 import { ActorAccess } from "../../shared/auth/types";
