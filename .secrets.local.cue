@@ -1,0 +1,8 @@
+AuthJwtSecret: "obayan-local-jwt-secret-2026-super-secure-key"
+SmtpHost: "smtp.gmail.com"
+SmtpPort: "587"
+SmtpUser: "khusnul.ninno15@gmail.com"
+SmtpPass: "wzvf nvnw vytx gyui"
+SmtpFrom: "Obayan <khusnul.ninno15@gmail.com>"
+AppBaseUrl: "http://localhost:5173"
+AuthJwtSecret: "obayan-local-jwt-secret-2026-super-secure-key"

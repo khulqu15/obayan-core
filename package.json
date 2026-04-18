@@ -6,15 +6,29 @@
   "license": "MPL-2.0",
   "type": "module",
   "scripts": {
-    "test": "vitest --passWithNoTests"
+    "test": "vitest --passWithNoTests",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx shared/db/migrate.ts",
+    "db:seed": "tsx shared/db/seed.ts",
+    "db:push": "drizzle-kit push"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20.5.7",
+    "@types/nodemailer": "^8.0.0",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.21.0",
     "typescript": "^5.2.2",
     "vitest": "^1.5.0"
   },
   "dependencies": {
-    "encore.dev": "^1.56.6"
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.9.0",
+    "drizzle-orm": "^0.45.2",
+    "encore.dev": "^1.56.6",
+    "jose": "^6.2.2",
+    "nodemailer": "^8.0.5",
+    "zod": "^4.3.6"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.13.0"
